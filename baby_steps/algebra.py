@@ -30,4 +30,4 @@ print("Is 16.3 + 12.1 = 28.4: %s" % output)
 
 # add [[1, 2], [3, 4]] to [[10, 20], [30, 40]]
 outputm = fm( numpy.array([[1,2], [3,4]]), numpy.array([[10, 20], [30, 40]]) )
-print "Adding two matrices: \n", outputm
+print("Adding two matrices: \n", outputm)

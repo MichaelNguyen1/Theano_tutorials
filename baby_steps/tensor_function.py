@@ -14,9 +14,9 @@ output = logistic([[0, 1], [-1, -2]])
 output2 = logistic2([[0, 1], [-1, -2]])
 
 ## Print results
-print "Output 1 is: \n", output
-print "Output 2 is: \n", output2
-print "---------------"
+print("Output 1 is: \n", output)
+print("Output 2 is: \n", output2)
+print("---------------")
 
 
 ## multiple computations in one step
@@ -29,4 +29,4 @@ f = theano.function([a,b], [diff, abs_diff, diff_squared])
 output3 = f([[1, 1], [1, 1]], [[0, 1], [2, 3]])
 
 ## Print results
-print " Result of cascaded functions: \n", output3
+print("Result of cascaded functions: \n", output3)
