@@ -3,16 +3,16 @@ import theano
 import theano.tensor as T
 rng = numpy.random
 
-N = 400         # number of training samples
-feats = 784     # number of features
+N = 400                                   # training sample size
+feats = 784                               # number of input variables
 
-# Generate an artificial dataset: D = (input_values, target_class)
+# generate a dataset: D = (input_values, target_class)
 D = (rng.randn(N, feats), rng.randint(size=N, low=0, high=2))
-training_steps  = 10000
+training_steps = 10000
 
 # Declare Theano symbolic variables
-x = T.dmatrix('x')
-y = T.dvector('y')
+x = T.dmatrix("x")
+y = T.dvector("y")
 
 # initialize the weight vector w randomly
 #
@@ -41,9 +41,9 @@ gw, gb = T.grad(cost, [w, b])             # Compute the gradient of the cost
 
 # Compile
 train = theano.function(
-        inputs=[x,y],
-        outputs=[prediction, xent],
-        updates=((w, w - 0.1 * gw), (b, b - 0.1 * gb)))
+          inputs=[x,y],
+          outputs=[prediction, xent],
+          updates=((w, w - 0.1 * gw), (b, b - 0.1 * gb)))
 predict = theano.function(inputs=[x], outputs=prediction)
 
 # Train
@@ -55,6 +55,5 @@ print(w.get_value())
 print(b.get_value())
 print("target values for D:")
 print(D[1])
-print("Predictions on D:")
+print("prediction on D:")
 print(predict(D[0]))
-print("Prediction Error: ", abs(D[1] - predict(D[0])).sum() )
